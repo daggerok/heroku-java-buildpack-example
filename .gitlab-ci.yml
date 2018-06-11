@@ -13,13 +13,6 @@ cache:
   - ${HOME}/.m2
   - ${HOME}/.gradle
 
-artifacts:
-  paths:
-  - ./build
-  - ./.gradle
-  - ${HOME}/.m2
-  - ${HOME}/.gradle
-
 ci-job:
 
   before_script:
@@ -44,6 +37,13 @@ ci-job:
   - stop_any 80 8080
   #
   - ./mvnw >/dev/null
+
+  artifacts:
+    paths:
+    - ./build
+    - ./.gradle
+    - ${HOME}/.m2
+    - ${HOME}/.gradle
 
 pages:
   image: alpine:latest
