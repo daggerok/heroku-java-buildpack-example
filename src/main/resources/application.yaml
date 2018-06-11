@@ -1,0 +1,40 @@
+spring:
+  profiles:
+    include:
+    - app
+    - spring-boot
+    - data-jpa
+---
+spring:
+  profiles:
+    active: app
+app:
+  base:
+    url: ${APP_BASE_URL:http://127.0.0.1:8080}
+---
+spring:
+  profiles:
+    active: spring-boot
+  output:
+    ansi:
+      enabled: always
+---
+spring:
+  profiles:
+    active: data-jpa
+
+  datasource:
+    username: jpa-playground
+    password: jpa-playground
+    hikari:
+      connection-test-query: 'SELECT 1;'
+  jpa:
+    generate-ddl: true
+    show-sql: true
+---
+spring:
+  profiles:
+    active: servlet
+  h2:
+    console:
+      enabled: true

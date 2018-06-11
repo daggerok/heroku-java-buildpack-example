@@ -1,0 +1,45 @@
+image: openjdk:8u171-jdk-stretch
+
+variables:
+  TERM: dumb
+  DOCKER_DRIVER: overlay2
+
+cache:
+  key: ${CI_BUILD_REF_NAME}
+  untracked: true
+  paths:
+  - ${HOME}/.m2
+  - ${HOME}/.gradle
+
+ci-job:
+
+  before_script:
+  - pwd
+  - whoami
+  - ls -lah .
+  - uname -a
+  - which bash
+  - which apt-get
+  - which apt || true
+  - apt-get update -y >/dev/null || true
+  - apt-get install -y --no-install-recommends curl jq bash sudo lsof >/dev/hull
+  - source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
+  - stop_any 80 8080
+
+  script:
+  - ./gradlew -S >/dev/null
+  - SPRING_PROFILES_ACTIVE=dev bash build/libs/*.jar &
+  - wait_for 8080
+  - curl -s 127.0.0.1:8080
+  - curl -s 127.0.0.1:8080/api/em/entity | jq .
+  - stop_any 80 8080
+  #
+  - ./mvnw >/dev/null
+
+pages:
+  image: alpine:latest
+  script:
+  - ./gradlew documentation >/dev/null || true
+  artifacts:
+    paths:
+    - public

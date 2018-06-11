@@ -1,0 +1,3 @@
+rootProject.name = 'heroku-java-buildpack-example'
+enableFeaturePreview 'STABLE_PUBLISHING'
+include 'docs'
