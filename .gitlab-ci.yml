@@ -29,7 +29,7 @@ ci-job:
   - stop_any 80 8080
 
   script:
-  - ./gradlew -S >/dev/null
+  - ./gradlew -Si
   - SPRING_PROFILES_ACTIVE=dev ./build/libs/*.jar &
   - wait_for 8080
   - curl -s 127.0.0.1:8080
@@ -41,7 +41,8 @@ ci-job:
 pages:
   image: alpine:latest
   script:
-  - ./gradlew documentation >/dev/null || true
+  - mkdir -p public
+  - ./gradlew documentation
   artifacts:
     paths:
     - public
