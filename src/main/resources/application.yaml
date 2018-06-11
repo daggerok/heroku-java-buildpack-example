@@ -24,8 +24,8 @@ spring:
     active: data-jpa
 
   datasource:
-    username: jpa-playground
-    password: jpa-playground
+    username: heroku-java-buildpack-example
+    password: heroku-java-buildpack-example
     hikari:
       connection-test-query: 'SELECT 1;'
   jpa:

@@ -2,4 +2,4 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:h2:file:./jpa-playground;AUTO_SERVER=TRUE;MULTI_THREADED=TRUE;MODE=MYSQL;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
+    url: jdbc:h2:file:./heroku-java-buildpack-example;AUTO_SERVER=TRUE;MULTI_THREADED=TRUE;MODE=PostgreSQL;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
