@@ -2,5 +2,4 @@ build:
   languages:
     - java
 run:
-  config:
-    SPRING_PROFILES_ACTIVE: dev
+  web: java -Dspring.profiles.active=prod -jar target/*.jar
