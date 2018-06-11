@@ -39,7 +39,6 @@ ci-job:
   - ./mvnw >/dev/null
 
 pages:
-  image: alpine:latest
   script:
   - mkdir -p public
   - ./gradlew documentation
