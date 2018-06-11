@@ -1,16 +1,8 @@
 spring:
   profiles:
     include:
-    - app
     - spring-boot
     - data-jpa
----
-spring:
-  profiles:
-    active: app
-app:
-  base:
-    url: ${APP_BASE_URL:http://127.0.0.1:8080}
 ---
 spring:
   profiles:
@@ -18,14 +10,17 @@ spring:
   output:
     ansi:
       enabled: always
+server:
+  port: ${PORT:8080}
+app:
+  base:
+    url: ${APP_BASE_URL:http://127.0.0.1:8080}
 ---
 spring:
   profiles:
     active: data-jpa
 
   datasource:
-    username: heroku-java-buildpack-example
-    password: heroku-java-buildpack-example
     hikari:
       connection-test-query: 'SELECT 1;'
   jpa:

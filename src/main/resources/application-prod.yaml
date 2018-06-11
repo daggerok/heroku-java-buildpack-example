@@ -1,11 +1,10 @@
 spring:
   profiles:
     active: prod
+
   datasource:
     url: ${JDBC_DATABASE_URL:}
     hikari:
       connection-timeout: 30000
       maximum-pool-size: 10
     database-platform: org.hibernate.dialect.PostgreSQL9Dialect
-server:
-  port: ${PORT:8080}
