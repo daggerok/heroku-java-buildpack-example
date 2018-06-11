@@ -38,13 +38,6 @@ ci-job:
   #
   - ./mvnw >/dev/null
 
-  artifacts:
-    paths:
-    - ./build
-    - ./.gradle
-    - ${HOME}/.m2
-    - ${HOME}/.gradle
-
 pages:
   image: alpine:latest
   script:
