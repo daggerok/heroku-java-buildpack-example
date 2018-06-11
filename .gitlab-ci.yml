@@ -8,6 +8,15 @@ cache:
   key: ${CI_BUILD_REF_NAME}
   untracked: true
   paths:
+  - ./build
+  - ./.gradle
+  - ${HOME}/.m2
+  - ${HOME}/.gradle
+
+artifacts:
+  paths:
+  - ./build
+  - ./.gradle
   - ${HOME}/.m2
   - ${HOME}/.gradle
 
