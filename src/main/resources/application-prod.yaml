@@ -6,10 +6,6 @@ spring:
     hikari:
       connection-timeout: 30000
       maximum-pool-size: 10
-  jpa:
-    properties:
-      hibernate:
-        temp.use_jdbc_metadata_defaults: false
     database-platform: org.hibernate.dialect.PostgreSQL9Dialect
 server:
   port: ${PORT:8080}
