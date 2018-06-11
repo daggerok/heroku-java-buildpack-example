@@ -37,7 +37,7 @@ ci-job:
 
   script:
   - ./gradlew -S >/dev/null
-  - SPRING_PROFILES_ACTIVE=dev bash build/libs/*.jar &
+  - SPRING_PROFILES_ACTIVE=dev ./build/libs/*.jar &
   - wait_for 8080
   - curl -s 127.0.0.1:8080
   - curl -s 127.0.0.1:8080/api/em/entity | jq .
