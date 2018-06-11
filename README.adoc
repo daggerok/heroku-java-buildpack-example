@@ -77,6 +77,20 @@ open https://daggerok-java-buildpack.herokuapp.com
 heroku logs -t
 ----
 
+.for production (heroku) version add postgres database
+[source,bash]
+----
+heroku addons:create heroku-postgresql:hobby-dev
+----
+
+.now let's switch out spring-boot app to production prpofile which is using postgres database:
+[source,bash]
+----
+heroku config:set SPRING_PROFILES_ACTIVE=prod
+heroku logs -t
+# verifu log contains: The following profiles are active: prod,app,spring-boot,data-jpa
+----
+
 link:
 
 - link:https://github.com/heroku/heroku-buildpack-java[heroku java buildpack]
