@@ -2,4 +2,4 @@ build:
   languages:
     - java
 run:
-  web: java -Dspring.profiles.active=dev -jar target/*.jar
+  web: java -jar target/*.jar --spring.profiles.active=dev
