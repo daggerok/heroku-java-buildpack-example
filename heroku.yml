@@ -2,4 +2,5 @@ build:
   languages:
     - java
 run:
-  web: java -jar target/*.jar --spring.profiles.active=dev
+  config:
+    SPRING_PROFILES_ACTIVE: dev
