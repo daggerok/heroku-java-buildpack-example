@@ -22,7 +22,7 @@ bash target/*.jar
 .prepare heroku.yml
 [source,yml]
 ----
-# default java build pack will use maven wrapper command: `./mvnw clean innstall`
+# default java build pack will use maven wrapper command: `./mvnw clean install`
 build:
   languages:
     - java
